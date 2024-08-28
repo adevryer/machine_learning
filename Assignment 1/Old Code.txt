@@ -1,0 +1,31 @@
+    distance = 0
+    
+    # find the euclidian distance between all of the features (excluding quality)
+    for i in range(0, len(train) - 1):
+        distance += ((train[i] - test[i]) ** 2)
+
+    # no need to square root the distance as we are only worried about the relative magnitude to other distances
+    # saves computation time
+    return distance
+
+
+
+
+
+
+
+
+    #if we have a tie between counts for the two labels
+    if (len(value_set) == 1 and max(value_set) != k_items.shape[0]):
+        # tie due to two points being at the same distance           
+        
+        if (k != 1):
+            # re-run the function again with 1-nn
+            return break_ties(k_items, 1)
+        else:
+            # both 1-nn neighbours are the same distance away, return a random value
+            return random.choose(counts_series.index)
+        
+    else:
+        # return the value of the label that appears most frequently
+        return counts_series.idxmax()
